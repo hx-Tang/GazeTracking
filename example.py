@@ -19,12 +19,20 @@ while True:
     frame = gaze.annotated_frame()
     text = ""
 
-    if gaze.is_blinking():
-        text = "Blinking"
-    elif gaze.is_right():
+    # if gaze.is_blinking():
+    #     text = "Blinking"
+
+    # if gaze.vertical_ratio() and gaze.horizontal_ratio():
+    #     print('v'+str(gaze.vertical_ratio())+'    h'+str(gaze.horizontal_ratio()))
+
+    if gaze.is_right():
         text = "Looking right"
     elif gaze.is_left():
         text = "Looking left"
+    elif gaze.is_up():
+        text = "Looking up"
+    elif gaze.is_down():
+        text = "Looking down"
     elif gaze.is_center():
         text = "Looking center"
 
