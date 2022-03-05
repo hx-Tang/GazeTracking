@@ -22,8 +22,8 @@ while True:
     # if gaze.is_blinking():
     #     text = "Blinking"
 
-    # if gaze.vertical_ratio() and gaze.horizontal_ratio():
-    #     print('v'+str(gaze.vertical_ratio())+'    h'+str(gaze.horizontal_ratio()))
+    if gaze.vertical_ratio() and gaze.horizontal_ratio():
+        print('v'+str(gaze.vertical_ratio())+'    h'+str(gaze.horizontal_ratio()))
 
     if gaze.is_right():
         text = "Looking right"
