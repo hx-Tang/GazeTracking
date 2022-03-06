@@ -259,9 +259,9 @@ if __name__ == '__main__':
         cv2.putText(frame, "Right pupil: " + str(right_pupil), (90, 165), cv2.FONT_HERSHEY_DUPLEX, 0.9, (147, 58, 31), 1)
         cv2.putText(frame, euler_angle_str, (0, 120), cv2.FONT_HERSHEY_PLAIN, 1, (0, 0, 255), 1 )
         cv2.imshow("Demo", frame)
-        if int(temp_data[2]) > 40 or int(temp_data[2]) < -40:
+        if int(temp_data[3]) > 10 or int(temp_data[3]) < -10:
             temp_data[5] = 1
-        elif int(temp_data[3]) > 10 or int(temp_data[3]) < -10:
+        elif int(temp_data[2]) > 40 or int(temp_data[2]) < -40:
             temp_data[5] = 2
         elif temp_data[4] == 'no':
             temp_data[5] = 3
@@ -270,6 +270,14 @@ if __name__ == '__main__':
         elif temp_data[4] == 'up' or temp_data[4] == 'down':
             temp_data[5] = 5
         else:
+            temp_data[5] = 6
+        if int(temp_data[2]) < -40 and temp_data[4] == 'right':
+            temp_data[5] = 6
+        if int(temp_data[2]) < -40 and temp_data[4] == 'right':
+            temp_data[5] = 6
+        if int(temp_data[1]) > 0 and temp_data[4] == 'down':
+            temp_data[5] = 6
+        if int(temp_data[1]) < 0 and temp_data[4] == 'up':
             temp_data[5] = 6
         data = np.vstack((data,temp_data))
         used_time = time.time() - start_time
