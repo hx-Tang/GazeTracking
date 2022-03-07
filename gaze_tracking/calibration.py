@@ -20,7 +20,7 @@ class Calibration(object):
         if re:
             self.thresholds_left = self.thresholds_left[-self.nb_frames+1:]
             self.thresholds_right = self.thresholds_right[-self.nb_frames+1:]
-        return re
+        return False
 
     def threshold(self, side):
         """Returns the threshold value for the given eye.
