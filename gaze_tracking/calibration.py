@@ -16,7 +16,11 @@ class Calibration(object):
 
     def is_complete(self):
         """Returns true if the calibration is completed"""
-        return len(self.thresholds_left) >= self.nb_frames and len(self.thresholds_right) >= self.nb_frames
+        re = len(self.thresholds_left) >= self.nb_frames and len(self.thresholds_right) >= self.nb_frames
+        if re:
+            self.thresholds_left = self.thresholds_left[int(-self.nb_frames/2):]
+            self.thresholds_right = self.thresholds_right[int(-self.nb_frames/2):]
+        return re
 
     def threshold(self, side):
         """Returns the threshold value for the given eye.

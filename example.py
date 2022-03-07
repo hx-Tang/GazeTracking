@@ -11,7 +11,7 @@ import time
 import math
 import pandas as pd
 detector = dlib.get_frontal_face_detector()
-predictor = dlib.shape_predictor("C:/Users/75581/Desktop/GazeTracking/gaze_tracking/trained_models/shape_predictor_68_face_landmarks.dat")
+predictor = dlib.shape_predictor("gaze_tracking/trained_models/shape_predictor_68_face_landmarks.dat")
 POINTS_NUM_LANDMARK = 68
 
 def _largest_face(dets):
@@ -229,8 +229,8 @@ if __name__ == '__main__':
         # if gaze.is_blinking():
         #     text = "Blinking"
 
-        # if gaze.vertical_ratio() and gaze.horizontal_ratio():
-        #     print('v'+str(gaze.vertical_ratio())+'    h'+str(gaze.horizontal_ratio()))
+        if gaze.vertical_ratio() and gaze.horizontal_ratio():
+            print('v'+str(gaze.vertical_ratio())+'    h'+str(gaze.horizontal_ratio()))
 
         if gaze.is_right():
             text = "Looking right"
