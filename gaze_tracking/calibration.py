@@ -10,7 +10,7 @@ class Calibration(object):
     """
 
     def __init__(self):
-        self.nb_frames = 20
+        self.nb_frames = 21
         self.thresholds_left = []
         self.thresholds_right = []
 
@@ -18,8 +18,8 @@ class Calibration(object):
         """Returns true if the calibration is completed"""
         re = len(self.thresholds_left) >= self.nb_frames and len(self.thresholds_right) >= self.nb_frames
         if re:
-            self.thresholds_left = self.thresholds_left[int(-self.nb_frames/2):]
-            self.thresholds_right = self.thresholds_right[int(-self.nb_frames/2):]
+            self.thresholds_left = self.thresholds_left[-self.nb_frames+1:]
+            self.thresholds_right = self.thresholds_right[-self.nb_frames+1:]
         return re
 
     def threshold(self, side):
